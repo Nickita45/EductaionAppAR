@@ -1,0 +1,137 @@
+{
+	"nameMain": "Тест 1.Введение",
+	"nameCourse":"Астрономия",
+	"resources_src": "test_1_alphabet",
+	"questions" : [
+	{
+		"name_question":"о_free",
+		"extra_question": "" ,
+		"type_question": "img",
+		"type_answers" : "text",
+		"variants": [ 				
+		"О",
+		"Д",
+		"И",
+		"А"		
+		],
+		"answer": "О"
+	},
+	{
+		"name_question":"р_free",
+		"extra_question": "" ,
+		"type_question": "img",
+		"type_answers" : "text",
+		"variants": [ 				
+		"Н",
+		"Р",
+		"И",
+		"Ш"		
+		],
+		"answer": "Р"
+	},
+	{
+		"name_question":"Какая из нижеперечисленных картинок демонстрирует жест буквы «Ы»",
+		"extra_question": "" ,
+		"type_question": "text",
+		"type_answers" : "img",
+		"variants": [ 				
+		"ф_free",
+		"х_free",
+		"б_free",
+		"ы_free"		
+		],
+		"answer": "ы_free"
+	},
+	{
+		"name_question":"Какая из нижеперечисленных картинок демонстрирует жест буквы «Ё»",
+		"extra_question": "" ,
+		"type_question": "text",
+		"type_answers" : "img",
+		"variants": [ 				
+		"у_free",
+		"ё_free",
+		"а_free",
+		"ж_free"		
+		],
+		"answer": "ё_free"
+	},
+	{
+		"name_question":"й_free",
+		"extra_question": "" ,
+		"type_question": "img",
+		"type_answers" : "text",
+		"variants": [ 				
+		"К",
+		"Й",
+		"Щ",
+		"А"		
+		],
+		"answer": "Й"
+	},
+	{
+		"name_question":"Какая из нижеперечисленных картинок демонстрирует жест буквы «Ь»",
+		"extra_question": "" ,
+		"type_question": "text",
+		"type_answers" : "img",
+		"variants": [ 				
+		"ь_free",
+		"э_free",
+		"г_free",
+		"з_free"		
+		],
+		"answer": "ь_free"
+	},
+	{
+		"name_question":"у_free",
+		"extra_question": "" ,
+		"type_question": "img",
+		"type_answers" : "text",
+		"variants": [ 				
+		"Ъ",
+		"Ь",
+		"З",
+		"У"		
+		],
+		"answer": "У"
+	},
+	{
+		"name_question":"т_free",
+		"extra_question": "" ,
+		"type_question": "img",
+		"type_answers" : "text",
+		"variants": [ 				
+		"Т",
+		"М",
+		"Ш",
+		"А"		
+		],
+		"answer": "Т"
+	},
+	{
+		"name_question":"Какая из нижеперечисленных картинок демонстрирует жест буквы «Я»",
+		"extra_question": "" ,
+		"type_question": "text",
+		"type_answers" : "img",
+		"variants": [ 				
+		"я_free",
+		"ч_free",
+		"а_free",
+		"ю_free"		
+		],
+		"answer": "я_free"
+	},
+	{
+		"name_question":"с_free",
+		"extra_question": "" ,
+		"type_question": "img",
+		"type_answers" : "text",
+		"variants": [ 				
+		"О",
+		"Е",
+		"А",
+		"С"		
+		],
+		"answer": "С"
+	}
+	]
+}

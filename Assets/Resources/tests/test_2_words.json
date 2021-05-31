@@ -1,0 +1,98 @@
+{
+	"nameMain": "Тест 2.Солнечная система",
+	"nameCourse":"Астрономия",
+	"resources_src": "test_2_words",
+	"questions" : [
+	{
+		"name_question":"lion",
+		"extra_question": "Какое слово показано жестами?" ,
+		"type_question": "img",
+		"type_answers" : "text",
+		"variants": [ 				
+		"нос",
+		"лев",
+		"кой",
+		"лай"		
+		],
+		"answer": "лев"
+	},
+	{
+		"name_question":"work",
+		"extra_question": "Какого жеста не хватает в слове «работа»" ,
+		"type_question": "img",
+		"type_answers" : "img",
+		"variants": [ 				
+		"о_free",
+		"д_free",
+		"а_free",
+		"б_free"		
+		],
+		"answer": "б_free"
+	},
+	{
+		"name_question":"ogyres",
+		"extra_question": "Какое слово показано жестами?" ,
+		"type_question": "img",
+		"type_answers" : "text",
+		"variants": [ 				
+		"огурец",
+		"одежда",
+		"ананас",
+		"собака"		
+		],
+		"answer": "огурец"
+	},
+	{
+		"name_question":"history",
+		"extra_question": "Какое слово показано жестами?" ,
+		"type_question": "img",
+		"type_answers" : "text",
+		"variants": [ 				
+		"история",
+		"тетрадь",
+		"игрушка",
+		"ребенок"		
+		],
+		"answer": "история"
+	},
+	{
+		"name_question":"night",
+		"extra_question": "Какое слово показано жестами?" ,
+		"type_question": "img",
+		"type_answers" : "text",
+		"variants": [ 				
+		"тень",
+		"пока",
+		"меню",
+		"ночь"		
+		],
+		"answer": "тень"
+	},
+	{
+		"name_question":"coffee",
+		"extra_question": "Какого жеста не хватает в слове «кофе»?" ,
+		"type_question": "img",
+		"type_answers" : "img",
+		"variants": [ 				
+		"ю_free",
+		"ж_free",
+		"ф_free",
+		"э_free"		
+		],
+		"answer": "ф_free"
+	},
+	{
+		"name_question":"dira",
+		"extra_question": "Какое слово показано жестами?" ,
+		"type_question": "img",
+		"type_answers" : "text",
+		"variants": [ 				
+		"шанс",
+		"жест",
+		"мыло",
+		"дыра"		
+		],
+		"answer": "дыра"
+	}
+	]
+}

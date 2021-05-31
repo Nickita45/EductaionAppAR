@@ -1,0 +1,15 @@
+{
+	"nameMain": "Алфавит",
+	"src_child_folder": "lesson_1",
+	"child_chapters" : [
+	{
+		"name":"Алфавит А-Й"
+	},
+	{
+		"name":"Алфавит К-Ф"
+	},
+	{
+		"name":"Алфавит Х-Я"
+	}
+	]
+}
