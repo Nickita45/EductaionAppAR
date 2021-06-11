@@ -15,6 +15,8 @@ public class QuizAddContent : MonoBehaviour
     public GameObject resultObj; 
     public GameObject test_String_Strings;
     public Image question_image;
+
+    public GameObject PecPict, PecText;
     //public LoginForm _LoginForm;
     List<Button> buttons_answers = new List<Button>();
     List<bool> answers = new List<bool>();
@@ -30,7 +32,7 @@ public class QuizAddContent : MonoBehaviour
         GetComponentsInChildren<TextMeshProUGUI>()[0].text = quiz_current.nameMain; //!!!!
 
         test_String_Strings.SetActive(true);//!!!
-        //resultObj.SetActive(false);
+        resultObj.SetActive(false);
 
         buttons_answers.Clear();
         for(int i=0;i<4;i++)
@@ -50,13 +52,17 @@ public class QuizAddContent : MonoBehaviour
             buttonNext.SetActive(false);
         else
             buttonNext.SetActive(true);*/
-        
+        if(number_curent_page == max_page)
+        {   countResults(); 
+            return ;
+        }
         if(page != 0 )
         {
             if(current_click != -1 )//!!!!
             addAnswer();
             number_curent_page+=1;
         }
+       
         setStandard();
         slider.value = number_curent_page;
         current_click = -1;
@@ -140,13 +146,21 @@ public class QuizAddContent : MonoBehaviour
             if(answers[i] == true)
             true_answer++;
         }
-        texts[1].text= true_answer+"/"+(max_page+1)+"правильных";
+        texts[2].text= "Ви набрали "+true_answer+"/"+(max_page+1)+" балів";
         float procent = (float)true_answer/(max_page+1); 
-        if(procent>=0.6f)
-            texts[2].text = "Сдал";
-        else
-            texts[2].text= "Не сдал";
-
+        PecPict.SetActive(true);
+        PecPict.GetComponent<Animation>().Play();
+        if(procent>=0.6f) {
+            PecPict.GetComponent<Image>().color = Color.green;
+            PecText.GetComponent<TextMeshProUGUI>().color = Color.green;
+            //texts[1].text = "Сдал";
+            PecText.GetComponent<TextMeshProUGUI>().text = "Склав";
+        }else {
+            PecPict.GetComponent<Image>().color = Color.red;
+            PecText.GetComponent<TextMeshProUGUI>().color = Color.red;
+            //texts[1].text= "Не сдал";
+            PecText.GetComponent<TextMeshProUGUI>().text = "Не склав";
+    }
         //if(string.IsNullOrEmpty(PlayerPrefs.GetString("test_first"+_LoginForm.login_id+quiz_current.nameMain)) == true)
         //    PlayerPrefs.SetString("test_first"+_LoginForm.login_id+ quiz_current.nameMain,true_answer+"/"+(max_page+1));
         //else

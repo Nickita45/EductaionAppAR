@@ -11,12 +11,16 @@ public class ProgrammManager : MonoBehaviour
     Vector2 touchPosition;
     bool IsStarted;
 
-    public GameObject ObjectToSpawn, PanelShow;
+    public GameObject PanelShow;
+    public DontDestroy dontdestr;
+    public GameObject[] ObjectToSpawn;
+    public GameObject startUI;
 
     // Start is called before the first frame update
     void Start()
     {
         raycastManager = FindObjectOfType<ARRaycastManager>();
+        dontdestr = FindObjectOfType<DontDestroy>();
         PlaneMarkerPrefab.SetActive(false);
     }
 
@@ -34,11 +38,13 @@ public class ProgrammManager : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             touchPosition = touch.position;
             raycastManager.Raycast(touchPosition, hits, TrackableType.Planes);
-            var obj = Instantiate(ObjectToSpawn, PlaneMarkerPrefab.transform.position, ObjectToSpawn.transform.rotation);
+            var obj = Instantiate(ObjectToSpawn[dontdestr.Index], PlaneMarkerPrefab.transform.position, ObjectToSpawn[dontdestr.Index].transform.rotation);
             obj.SetActive(true);
             IsStarted = true;
             PlaneMarkerPrefab.SetActive(false);
-            // Instantiate(ObjectToSpawn, hits[0].pose.position, ObjectToSpawn.transform.rotation);
+            startUI.SetActive(false);
+
+            // Instantiate(ObjectToSpawn[dontdestr.Index], hits[0].pose.position, ObjectToSpawn[dontdestr.Index].transform.rotation);
         }
     }
 

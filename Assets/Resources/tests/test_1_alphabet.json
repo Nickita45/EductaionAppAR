@@ -1,6 +1,6 @@
 {
-	"nameMain": "Тест 1.Введение",
-	"nameCourse":"Астрономия",
+	"nameMain": "Тест 1. Введення",
+	"nameCourse":"Астрономія",
 	"resources_src": "test_1_alphabet",
 	"questions" : [
 	{

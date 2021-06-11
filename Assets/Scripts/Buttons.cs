@@ -11,7 +11,7 @@ public class Buttons : MonoBehaviour
 
     public void SetSpawn(GameObject obj)
     {
-        FindObjectOfType<ProgrammManager>().ObjectToSpawn = obj;
+        //FindObjectOfType<ProgrammManager>().ObjectToSpawn = obj;
         PanelShow.SetActive(false);
     }
 
@@ -20,5 +20,8 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
-  
+  public void SetScene(int index) {
+      FindObjectOfType<DontDestroy>().Index = index;
+      SceneManager.LoadScene("SampleScene");
+  }
 }

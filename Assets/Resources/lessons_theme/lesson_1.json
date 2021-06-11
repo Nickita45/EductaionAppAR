@@ -1,9 +1,9 @@
 {
-	"nameMain": "Введение",
+	"nameMain": "Вступ до астрономії",
 	"src_child_folder": "lesson_1",
 	"child_chapters" : [
 	{
-		"name":"Вводный урок"
+		"name":"Вступний урок"
 	}
 	]
 }
