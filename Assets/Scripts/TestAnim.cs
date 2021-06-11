@@ -1,42 +1,53 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class TestAnim : MonoBehaviour
 {
     public GameObject Partical, Sphere, SphereNew;
     ParticleSystem ps;
+    
+    TextMeshProUGUI textt;
+    string[] str;
     float TimerToStart, k = 0;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        textt = FindObjectOfType<Buttons>().textForAll.GetComponent<TextMeshProUGUI>();
+        str = FindObjectOfType<Buttons>().elovutionStars;
          ps = Partical.GetComponent<ParticleSystem>();
+         textt.text = str[0];
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         TimerToStart += Time.deltaTime;
 
-       if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended && TimerToStart > 5) {
+      // if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended && TimerToStart > 5) {
       //.     StartCoroutine(StartCoolEffect());
       //  }
-     //  if(Input.GetKeyUp(KeyCode.G) && TimerToStart > 5) {
+       if(Input.GetKeyUp(KeyCode.G) && TimerToStart > 5) {
             if (Sphere.activeInHierarchy == false)
             {
                 StartCoroutine(StartCoolEffect());
+                         textt.text = str[1];
             }
             else
             {
                 if (Sphere.transform.localScale.x < 1f)
                 {
                     StartCoroutine(StarBigSphere());
+                    textt.text = str[2];
                 }else
                 {
                     SphereNew.SetActive(true);
                     StartCoroutine(StartCoolEffect());
+                    textt.text = str[3];
                 }
             }
 

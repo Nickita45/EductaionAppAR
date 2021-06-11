@@ -1,8 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using TMPro;
 
 public class ProgrammManager : MonoBehaviour
 {
@@ -11,14 +12,19 @@ public class ProgrammManager : MonoBehaviour
     Vector2 touchPosition;
     bool IsStarted;
 
+    TextMeshProUGUI textt;
+    string[] str;
     public GameObject PanelShow;
     public DontDestroy dontdestr;
     public GameObject[] ObjectToSpawn;
     public GameObject startUI;
+    public int indexs;
 
     // Start is called before the first frame update
     void Start()
     {
+        textt = FindObjectOfType<Buttons>().textForAll.GetComponent<TextMeshProUGUI>();
+        str = FindObjectOfType<Buttons>().planetSystem;
         raycastManager = FindObjectOfType<ARRaycastManager>();
         dontdestr = FindObjectOfType<DontDestroy>();
         PlaneMarkerPrefab.SetActive(false);
@@ -46,8 +52,16 @@ public class ProgrammManager : MonoBehaviour
 
             // Instantiate(ObjectToSpawn[dontdestr.Index], hits[0].pose.position, ObjectToSpawn[dontdestr.Index].transform.rotation);
         }
+        if(dontdestr.Index == 0 && IsStarted == true && indexs < str.Length) {
+            Settext(indexs);
+        }
     }
 
+    void Settext(int ind) {
+        textt.text = str[indexs];
+    }
+
+    
     void ShowMarket()
     {
         List<ARRaycastHit> hits = new List<ARRaycastHit>();

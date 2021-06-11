@@ -87,5 +87,14 @@ public class ChoosePlanet : MonoBehaviour
             }
         }
         Target.GetComponent<Animation>().Play("OpenPanel");
+        if(NameObj == FindObjectOfType<Buttons>().targetnow) {
+            for(int i = 0; i< FindObjectOfType<Buttons>().targets.Length; i++) {
+                if(FindObjectOfType<Buttons>().targets[i] == NameObj && i+1 < FindObjectOfType<Buttons>().targets.Length) {
+                    FindObjectOfType<Buttons>().targetnow = FindObjectOfType<Buttons>().targets[i+1];
+                }
+            }
+            FindObjectOfType<ProgrammManager>().indexs++;
+        }
     }
+
 }
