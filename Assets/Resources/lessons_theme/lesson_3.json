@@ -1,6 +1,6 @@
 {
 	"nameMain": "Солнечная система",
-	"src_child_folder": "lesson_1",
+	"src_child_folder": "lessons",
 	"child_chapters" : [
 	{
 		"name":"Солнце"

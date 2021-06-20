@@ -1,12 +1,12 @@
 {
 	"nameMain": "Зорі",
-	"src_child_folder": "lesson_1",
+	"src_child_folder": "lessons",
 	"child_chapters" : [
 	{
 		"name":"Зоряні скупчення"
 	},
 	{
-		"name":"Молочний шлях"
+		"name":"Чумацький шлях"
 	},
 	{
 		"name":"Народження зірок"

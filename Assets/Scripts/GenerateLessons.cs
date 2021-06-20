@@ -48,7 +48,7 @@ public class GenerateLessons : MonoBehaviour
                 childObj.name = "ChildTheme_"+i+"_"+j;
                 GameObject gmj = childObj;
                 string name = assets[i].child_chapters[j].name + "|" + assets[i].src_child_folder;
-                //childObj.GetComponentsInChildren<Button>()[0].onClick.AddListener(() => openLessonPanel(name));
+                childObj.GetComponentsInChildren<Button>()[0].onClick.AddListener(() => openLessonPanel(name));
                 //mainobj.GetComponent<ThemeContent>().gmjs.Add(childObj);                
             }
         }
@@ -58,8 +58,8 @@ public class GenerateLessons : MonoBehaviour
         string[] str = name.Split('|');
         currentPanel.SetActive(false);
         openLesson.SetActive(true);
-        //openLesson.GetComponentsInChildren<TextMeshProUGUI>()[0].text=str[0];
-        //openLesson.GetComponent<GenerateLessonPages>().addContent(str[1]);
+        openLesson.GetComponentsInChildren<TextMeshProUGUI>()[0].text=str[0];
+        openLesson.GetComponent<GenerateLessonPages>().addContent(str[1]);
     }
     
     public List<jsonLessonData> getJsonFiles(string name_json_theme)
