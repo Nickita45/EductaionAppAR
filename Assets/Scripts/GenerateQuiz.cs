@@ -9,13 +9,23 @@ public class GenerateQuiz : MonoBehaviour
     public GameObject prefab;
     public GameObject theme_quizs;
     public GameObject quizOpen;
+    public DataBaseRequests Database;
+    
     void Start()
     {
         generateQuizThemes();
     }
     void generateQuizThemes()
     {
-        List<jsonQuizs> assets = getJsonFiles();
+        //StartCoroutine(Database.getTests(Database.CallbackGetTests));
+        
+        jsonList asset = JsonUtility.FromJson<jsonList>(Database.questions_json);
+        
+        List<jsonQuizs> assets = new List<jsonQuizs>();
+        for(int i=0;i<asset.lists.Length;i++)
+            assets.Add(asset.lists[i]);
+        //List<jsonQuizs> assets = asset.lists;//getJsonFiles();
+        
         GameObject mainobj;
         for(int i=0;i<assets.Count;i++)
         {
@@ -34,6 +44,7 @@ public class GenerateQuiz : MonoBehaviour
         quizOpen.SetActive(true);
         theme_quizs.SetActive(false);
         quizOpen.GetComponent<QuizAddContent>().quiz_current = quiz; 
+        quizOpen.GetComponent<QuizAddContent>().ID_test = quiz.ID_tests;
         quizOpen.GetComponent<QuizAddContent>().addContent();
     }
     public List<jsonQuizs> getJsonFiles()
@@ -45,10 +56,16 @@ public class GenerateQuiz : MonoBehaviour
         return assets;
     }
     [System.Serializable]
+    public class jsonList
+    {
+        public jsonQuizs[] lists;
+    }
+    [System.Serializable]
     public class jsonQuizs{
         public string nameMain;
         public string resources_src;
         public string nameCourse;
+        public int ID_tests;
         public jsonQuestions[] questions;
     }
     [System.Serializable]

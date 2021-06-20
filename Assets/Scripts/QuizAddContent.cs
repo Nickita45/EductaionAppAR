@@ -21,6 +21,8 @@ public class QuizAddContent : MonoBehaviour
     List<Button> buttons_answers = new List<Button>();
     List<bool> answers = new List<bool>();
     public Sprite standart_block;
+    public int ID_test;
+    public DataBaseRequests dataBase;
     public void addContent()
     {
         //ПРОВЕРКА НА ТИП ТЕСТА
@@ -43,7 +45,7 @@ public class QuizAddContent : MonoBehaviour
         
         randomizeQuiz();
 
-        //buttonFinish.SetActive(true);
+        buttonNext.SetActive(true);
         changePage(0);
     }
     public void changePage(int page)
@@ -86,7 +88,7 @@ public class QuizAddContent : MonoBehaviour
             //test_String_Strings.GetComponentsInChildren<Image>()[1].sprite = null;
         }
         
-        for(int i=0;i<4;i++)
+        for(int i=0;i<quiz_current.questions[number_curent_page].variants.Length;i++)
         {
             if(quiz_current.questions[number_curent_page].type_answers == "img")
             {
@@ -160,7 +162,11 @@ public class QuizAddContent : MonoBehaviour
             PecText.GetComponent<TextMeshProUGUI>().color = Color.red;
             //texts[1].text= "Не сдал";
             PecText.GetComponent<TextMeshProUGUI>().text = "Не склав";
-    }
+        
+        }   
+        string mark = true_answer+"/"+(max_page+1);
+        StartCoroutine(dataBase.setStatistics(mark,ID_test));
+        buttonNext.SetActive(false);
         //if(string.IsNullOrEmpty(PlayerPrefs.GetString("test_first"+_LoginForm.login_id+quiz_current.nameMain)) == true)
         //    PlayerPrefs.SetString("test_first"+_LoginForm.login_id+ quiz_current.nameMain,true_answer+"/"+(max_page+1));
         //else
