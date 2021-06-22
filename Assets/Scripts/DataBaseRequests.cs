@@ -13,11 +13,14 @@ public class DataBaseRequests : MonoBehaviour
     private string url_setStat = "http://ecilop.farlep.net:8080/api/setstatistics";
     private string url_getStat = "http://ecilop.farlep.net:8080/api/getstatistics";
    
-    public GameObject panel_authorization,panel_menu,panel_personal_data;
+    public GameObject panel_authorization,panel_menu,panel_personal_data,content_test;
     public TMP_InputField login,password;
+    public TextMeshProUGUI text_warning;
     public jsonAuthorizationInfo person_information;
     public string questions_json;
     public string statistics_json;
+    public GameObject panel_warning;
+    public Buttons buttons;
     void Start()
     {
         //StartCoroutine(getTests());
@@ -30,6 +33,7 @@ public class DataBaseRequests : MonoBehaviour
     public void CallbackGetTests(string call)
     {
         questions_json=call;
+        content_test.GetComponent<GenerateQuiz>().generateQuizThemes();
     }
     public IEnumerator checkLogin(string login, string pas)
     {
@@ -44,6 +48,7 @@ public class DataBaseRequests : MonoBehaviour
         if (hs_get.error != null)
         {
             print("There was an error getting the high score: " + hs_get.error);
+            text_warning.text = "Стався збій при підключення";
         }
         else
         {
@@ -56,9 +61,18 @@ public class DataBaseRequests : MonoBehaviour
                 StartCoroutine(getTests(CallbackGetTests));
                 StartCoroutine(getStatistics());
             }
+            else
+            {
+                text_warning.text = "Дані введені не вірно";
+            }
            
 
         }
+
+    }
+    public void getTestCoroutine()
+    {
+        StartCoroutine(getTests(CallbackGetTests));
     }
     public IEnumerator getTests(System.Action<string> callbackOnFinish)
     {
@@ -72,13 +86,14 @@ public class DataBaseRequests : MonoBehaviour
         print(hs_get.downloadHandler.text);
         if (hs_get.error != null)
         {
+            buttons.PanelWarning(panel_warning);
             print("There was an error getting the high score: " + hs_get.error);
         }
         else
         {
             callbackOnFinish("{\"lists\":"+hs_get.downloadHandler.text+ "}");
 
-
+            //print("LOLL");
         }
     }
     public IEnumerator setStatistics(string mark, int id_test)
@@ -94,6 +109,7 @@ public class DataBaseRequests : MonoBehaviour
         print(hs_get.downloadHandler.text);
         if (hs_get.error != null)
         {
+            buttons.PanelWarning(panel_warning);
             print("There was an error getting the high score: " + hs_get.error);
         }
         else
@@ -125,6 +141,7 @@ public class DataBaseRequests : MonoBehaviour
         print(hs_get.downloadHandler.text);
         if (hs_get.error != null)
         {
+            buttons.PanelWarning(panel_warning);
             print("There was an error getting the high score: " + hs_get.error);
         }
         else

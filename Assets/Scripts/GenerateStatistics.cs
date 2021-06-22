@@ -44,8 +44,8 @@ public class GenerateStatistics : MonoBehaviour
                     procent = (float)float.Parse(marks[0])/float.Parse(marks[1]);
             }
             if(procent>=0.6f) {
-            mainobj.GetComponentsInChildren<Image>()[1].GetComponent<Image>().color = Color.green;
-            mainobj.GetComponentsInChildren<Image>()[1].GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
+            mainobj.GetComponentsInChildren<Image>()[1].GetComponent<Image>().color = Utiliity.getColorByHex("2CA425");//Color.green;
+            mainobj.GetComponentsInChildren<Image>()[1].GetComponentInChildren<TextMeshProUGUI>().color = Utiliity.getColorByHex("2CA425");//Color.green;
             //texts[1].text = "Сдал";
             mainobj.GetComponentsInChildren<Image>()[1].GetComponentInChildren<TextMeshProUGUI>().text = "Склав";
             }else{

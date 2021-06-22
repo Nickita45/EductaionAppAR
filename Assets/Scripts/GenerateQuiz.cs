@@ -15,7 +15,7 @@ public class GenerateQuiz : MonoBehaviour
     {
         generateQuizThemes();
     }
-    void generateQuizThemes()
+    public void generateQuizThemes()
     {
         //StartCoroutine(Database.getTests(Database.CallbackGetTests));
         
@@ -25,7 +25,7 @@ public class GenerateQuiz : MonoBehaviour
         for(int i=0;i<asset.lists.Length;i++)
             assets.Add(asset.lists[i]);
         //List<jsonQuizs> assets = asset.lists;//getJsonFiles();
-        
+        deleteComponents(this.gameObject);
         GameObject mainobj;
         for(int i=0;i<assets.Count;i++)
         {
@@ -54,6 +54,14 @@ public class GenerateQuiz : MonoBehaviour
         for(int i=0;i<asset.Length;i++)
             assets.Add(JsonUtility.FromJson<jsonQuizs>(asset[i].ToString()));
         return assets;
+    }
+    public void deleteComponents(GameObject gmj)
+    {
+        
+        for(int i=gmj.transform.childCount-1;i>=0;i--)
+        {
+            Destroy(gmj.transform.GetChild(i).gameObject);
+        }
     }
     [System.Serializable]
     public class jsonList

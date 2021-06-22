@@ -59,5 +59,17 @@ void Mood(GameObject text, string mood, Sprite sp) {
       anim.Play("ButtonRBack");
       stop = false;
   }
+
+public void PanelWarning(GameObject obj) {
+    StartCoroutine(CoolEffect(obj));
+}
+
+  IEnumerator CoolEffect(GameObject obj) {
+      obj.SetActive(true);
+      obj.GetComponent<Animation>().Play("PanelWarning");
+      yield return new WaitForSeconds(4);
+      obj.GetComponent<Animation>().Play("PanelWarningClose");
+      obj.SetActive(false);
+  } 
 }
 
